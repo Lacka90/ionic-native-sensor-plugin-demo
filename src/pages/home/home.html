@@ -6,9 +6,15 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding
+    [ngStyle]="{ 'background': color }">
+  <div>X: {{ result.x }}</div>
+  <div>Y: {{ result.y }}</div>
+  <div>Z: {{ result.z }}</div>
+
+  <div>TOP: {{ top }}</div>
+  <div>LEFT: {{ left }}</div>
+  <div class="ball" [ngStyle]="{ 'top': top + 'px', 'left': left + 'px' }"></div>
+  <button ion-button block (click)="start()">START</button>
+  <button ion-button block (click)="stop()">STOP</button>
 </ion-content>
