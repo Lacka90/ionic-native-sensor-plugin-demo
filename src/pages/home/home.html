@@ -6,15 +6,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding
-    [ngStyle]="{ 'background': color }">
-  <div>X: {{ result.x }}</div>
-  <div>Y: {{ result.y }}</div>
-  <div>Z: {{ result.z }}</div>
-
-  <div>TOP: {{ top }}</div>
-  <div>LEFT: {{ left }}</div>
-  <div class="ball" [ngStyle]="{ 'top': top + 'px', 'left': left + 'px' }"></div>
+<ion-content padding #canvas>
+  <div class="ball" [hidden]="!visible" [ngStyle]="{ 'top': top + 'px', 'left': left + 'px', 'width': ballWidth + 'px', 'height': ballWidth + 'px' }"></div>
   <button ion-button block (click)="start()">START</button>
   <button ion-button block (click)="stop()">STOP</button>
 </ion-content>
