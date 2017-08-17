@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy, NgZone, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, NgZone, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -10,7 +10,6 @@ export class HomePage implements AfterViewInit, OnDestroy {
   ballWidth = 30;
   top = 0;
   left = 0;
-  color = 'gray';
   visible = false;
 
   canvasWidth = 0;
@@ -26,10 +25,10 @@ export class HomePage implements AfterViewInit, OnDestroy {
       this.left = (this.canvasWidth - this.ballWidth) / 2;
       this.visible = true;
     }, 1000);
-    window['cordova']['plugins']['sensorManager']['initialize']();
   }
 
   start() {
+    window['cordova']['plugins']['sensorManager']['initialize']();
     window['cordova']['plugins']['sensorManager']['watch']((result) => {
       this.zone.run(() => {
         let left = this.left - result.x * 15;
