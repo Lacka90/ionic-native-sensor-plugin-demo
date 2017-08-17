@@ -1,6 +1,8 @@
 import { Component, AfterViewInit, OnDestroy, NgZone, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+const TOP_BAR_HEIGHT = 54;
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -39,8 +41,8 @@ export class HomePage implements AfterViewInit, OnDestroy {
           left = this.canvasWidth - this.ballWidth;
         }
         let top = this.top + result.y * 15;
-        if (top < 0) {
-          top = 0;
+        if (top < TOP_BAR_HEIGHT) {
+          top = TOP_BAR_HEIGHT;
         }
         if (top > this.canvasHeight - this.ballWidth) {
           top = this.canvasHeight - this.ballWidth;

@@ -6,8 +6,14 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding #canvas>
+<ion-content #canvas>
+  <ion-row style="border-bottom: 1px #488aff solid">
+      <ion-col col-6>
+          <button ion-button block (click)="start()">START</button>
+      </ion-col>
+      <ion-col col-6>
+          <button ion-button block (click)="stop()">STOP</button>
+      </ion-col>
+  </ion-row>
   <div class="ball" [hidden]="!visible" [ngStyle]="{ 'top': top + 'px', 'left': left + 'px', 'width': ballWidth + 'px', 'height': ballWidth + 'px' }"></div>
-  <button ion-button block (click)="start()">START</button>
-  <button ion-button block (click)="stop()">STOP</button>
 </ion-content>
