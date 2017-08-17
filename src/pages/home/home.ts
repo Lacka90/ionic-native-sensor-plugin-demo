@@ -30,8 +30,7 @@ export class HomePage implements AfterViewInit, OnDestroy {
   }
 
   start() {
-    window['cordova']['plugins']['sensorManager']['initialize']();
-    window['cordova']['plugins']['sensorManager']['watch']((result) => {
+    window['cordova']['plugins']['sensorManager']['start']((result) => {
       this.zone.run(() => {
         let left = this.left - result.x * 15;
         if (left < 0) {
@@ -56,7 +55,7 @@ export class HomePage implements AfterViewInit, OnDestroy {
   }
 
   stop() {
-    window['cordova']['plugins']['sensorManager']['finish']();
+    window['cordova']['plugins']['sensorManager']['stop']();
   }
 
   ngOnDestroy() {
