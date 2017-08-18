@@ -9,7 +9,7 @@ const TOP_BAR_HEIGHT = 54;
 })
 export class HomePage implements AfterViewInit, OnDestroy {
   @ViewChild('canvas') canvas;
-  ballWidth = 30;
+  ballD = 30;
   top = 0;
   left = 0;
   visible = false;
@@ -23,8 +23,8 @@ export class HomePage implements AfterViewInit, OnDestroy {
     setTimeout(() => {
       this.canvasWidth = this.canvas.contentWidth;
       this.canvasHeight = this.canvas.contentHeight;
-      this.top = (this.canvasHeight - this.ballWidth) / 2;
-      this.left = (this.canvasWidth - this.ballWidth) / 2;
+      this.top = (this.canvasHeight - this.ballD) / 2;
+      this.left = (this.canvasWidth - this.ballD) / 2;
       this.visible = true;
     }, 1000);
   }
@@ -36,15 +36,15 @@ export class HomePage implements AfterViewInit, OnDestroy {
         if (left < 0) {
           left = 0;
         }
-        if (left > this.canvasWidth - this.ballWidth) {
-          left = this.canvasWidth - this.ballWidth;
+        if (left > this.canvasWidth - this.ballD) {
+          left = this.canvasWidth - this.ballD;
         }
         let top = this.top + result.y * 15;
         if (top < TOP_BAR_HEIGHT) {
           top = TOP_BAR_HEIGHT;
         }
-        if (top > this.canvasHeight - this.ballWidth) {
-          top = this.canvasHeight - this.ballWidth;
+        if (top > this.canvasHeight - this.ballD) {
+          top = this.canvasHeight - this.ballD;
         }
         this.left = left;
         this.top = top;
