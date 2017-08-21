@@ -8,7 +8,6 @@ const TOP_BAR_HEIGHT = 54;
   templateUrl: 'home.html'
 })
 export class HomePage implements AfterViewInit, OnDestroy {
-  @ViewChild('canvas') canvas;
   ballD = 30;
   top = 0;
   left = 0;
@@ -20,13 +19,12 @@ export class HomePage implements AfterViewInit, OnDestroy {
   constructor(public navCtrl: NavController, private zone: NgZone) {}
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.canvasWidth = this.canvas.contentWidth;
-      this.canvasHeight = this.canvas.contentHeight;
-      this.top = (this.canvasHeight - this.ballD) / 2;
-      this.left = (this.canvasWidth - this.ballD) / 2;
-      this.visible = true;
-    }, 1000);
+    const canvas = document.getElementById('canvas');
+    this.canvasWidth = canvas.offsetWidth;
+    this.canvasHeight = canvas.offsetHeight;
+    this.top = (this.canvasHeight - this.ballD) / 2;
+    this.left = (this.canvasWidth - this.ballD) / 2;
+    this.visible = true;
   }
 
   start() {
